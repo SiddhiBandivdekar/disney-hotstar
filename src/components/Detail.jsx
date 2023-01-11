@@ -2,18 +2,18 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import db from "../firebase";
-import { collection } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 
 const Detail = (props) => {
   const { id } = useParams();
   const [detailData, setDetailData] = useState({});
 
   useEffect(() => {
-    db.collection("movies")
-      .doc(id)
-      .getDoc()
+    const docRef = doc(db, "movies", id);
+
+    getDoc(docRef)
       .then((doc) => {
-        if (doc.exists) {
+        if (doc.exists()) {
           setDetailData(doc.data());
         } else {
           console.log("No such data exists");

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Detail from "./components/Detail";
+import WatchList from "./components/WatchList";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/detail/:id">
             <Detail />
+          </Route>
+          <Route path="/detail/:id/:watchlist">
+            <WatchList />
           </Route>
         </Switch>
       </Router>
