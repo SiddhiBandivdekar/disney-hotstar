@@ -23,6 +23,7 @@ const Detail = (props) => {
         console.log("Error getting document", err);
       });
   }, [id]);
+
   return (
     <Container>
       <Background>
